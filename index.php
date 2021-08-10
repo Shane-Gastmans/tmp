@@ -50,7 +50,7 @@
               <tr>
                 <td width="25%" align="right">Selecteer Excel bestand</td>
                 <td width="25%" align="center"><input type="file" name="select_excel" /></td>
-		        <td width="25%" align="left"><input type="text" name="sheet" /></td>
+		        <td width="25%" align="left"><input type="text" name="sheet" value="Offerte klant" /></td>
               </tr>
             </table>
             <input style="display:block;margin:auto;" type="submit" name="load" value="Upload excel bestand" width="100%" id="submitExcel" class="btn btn-primary" disabled />
