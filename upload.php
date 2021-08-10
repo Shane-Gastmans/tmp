@@ -2,6 +2,8 @@
 
 //upload.php
 
+ini_set("memory_limit", "-1");
+
 include 'vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -25,7 +27,7 @@ if($_FILES["select_excel"]["name"] != "") {
         }
 
         $spred = IOFactory::load($_FILES["select_excel"]["tmp_name"]);
-        $shet = $spred->getSheetByName("Offerte klant");
+        $shet = $spred->getSheetByName($_POST["sheet"]);
 
         $arr = [];
 

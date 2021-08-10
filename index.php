@@ -3,7 +3,12 @@
    <head>
      <title>P&D bouw vorderingstaat</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" href="/images/logo-small.jpg"/>
      <style>
+       .selectedRow {
+         border-top: 5px solid red!important;
+         border-bottom: 5px solid red!important;
+       }
        #excel_area td:hover {background-color:green;color:white;}
        .selectable {background-color:red;color:white;}
        .selected {background-color:green;color:white;}
@@ -51,7 +56,7 @@
             <input style="display:block;margin:auto;" type="submit" name="load" value="Upload excel bestand" width="100%" id="submitExcel" class="btn btn-primary" disabled />
               <div id="fields">
                   <label for="artnummer">Artnummer:</label>
-                  <input type="text" id="artnummer" name="artnummer" class="selectable" value="" readonly>
+                  <input type="text" id="artnummer" name="artnummer" class="selectable selected" value="" readonly>
                   <label for="eenheidsprijs">Beschrijving:</label>
                   <input type="text" id="beschrijving" name="beschrijving" class="selectable" value="" readonly>
                   <label for="eenheid">Eenheid:</label>
@@ -105,6 +110,10 @@ $(document).ready(function(){
                         let next = $(".selected").next().next();
                         $(".selected").removeClass("selected");
                         next.addClass("selected");
+                    });
+                    $("#excel_area tr").on("click", function(){
+                        console.log("clicked table row")
+                        $(this).children().addClass("selectedRow");
                     });
                     $("#fields").show();
                   
